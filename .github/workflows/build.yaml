@@ -14,6 +14,7 @@ jobs:
         git clone https://github.com/NationalSecurityAgency/ghidra.git
         cd ~/git/ghidra
         gradle --init-script gradle/support/fetchDependencies.gradle init
+    - run: echo -e -n "\\napplication.allPlatforms=" >> ~/git/ghidra/Ghidra/application.properties
     - run: |
         cd ~/git/ghidra
         gradle buildGhidra
