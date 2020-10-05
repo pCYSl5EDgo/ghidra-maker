@@ -2,7 +2,7 @@ name: Create ALF File
 
 on: 
   schedule:
-  - cron:  '23 * * * *'
+  - cron:  '42 * * * *'
   
 jobs:
   build: 
@@ -11,7 +11,7 @@ jobs:
     - run: |
         mkdir ~/git
         cd ~/git
-        git clone git@github.com:NationalSecurityAgency/ghidra.git
+        git clone https://github.com/NationalSecurityAgency/ghidra.git
         mkdir ~/git/ghidra/flatRepo
         cd ~/Downloads   # Or wherever
         curl -OL https://github.com/pxb1988/dex2jar/releases/download/2.0/dex-tools-2.0.zip
