@@ -2,7 +2,7 @@ name: Create ALF File
 
 on: 
   schedule:
-  - cron:  '0 * * * *'
+  - cron:  '6 * * * *'
   
 jobs:
   build: 
