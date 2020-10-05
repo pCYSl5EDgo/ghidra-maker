@@ -27,8 +27,13 @@ jobs:
     steps:
     - run: |
         curl -OL https://jaist.dl.sourceforge.net/project/gnuwin32/bison/2.4.1/bison-2.4.1-setup.exe
+        dir
+    - run: |
         curl -OL https://jaist.dl.sourceforge.net/project/gnuwin32/flex/2.5.4a-1/flex-2.5.4a-1.exe
-        ./bison-2.4.1-setup.exe
-        ./flex-2.5.4a-1.exe
-        cd "C:\Program Files\GnuWin32\bin"
+        dir
+    - run: ./bison-2.4.1-setup.exe
+    - run: ./flex-2.5.4a-1.exe
+    - run: dir
+    - run: |
+        cd "C:\"
         dir
