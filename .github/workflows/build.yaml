@@ -1,8 +1,8 @@
 name: Create ALF File
 
 on: 
-  schedule:
-  - cron:  '24 6 * * *'
+  watch:
+    types: [started]
   
 jobs:
   build: 
