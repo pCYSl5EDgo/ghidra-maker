@@ -13,6 +13,7 @@ jobs:
         cd ~/git
         git clone https://github.com/NationalSecurityAgency/ghidra.git
         mkdir ~/git/ghidra/flatRepo
+        mkdir ~/Downloads
         cd ~/Downloads   # Or wherever
         curl -OL https://github.com/pxb1988/dex2jar/releases/download/2.0/dex-tools-2.0.zip
         unzip dex-tools-2.0.zip
