@@ -5,7 +5,8 @@ on:
     types: [started]
   
 jobs:
-  build: 
+  build-linux: 
+    if: 1 == 0
     runs-on: ubuntu-20.04
     steps:
     - run: |
@@ -14,12 +15,20 @@ jobs:
         git clone https://github.com/NationalSecurityAgency/ghidra.git
         cd ~/git/ghidra
         gradle --init-script gradle/support/fetchDependencies.gradle init
-    - run: echo -e -n "\\napplication.allPlatforms=" >> ~/git/ghidra/Ghidra/application.properties
     - run: |
         cd ~/git/ghidra
         gradle buildGhidra
-
     - uses: actions/upload-artifact@master
       with:
         path: ~/git/ghidra/build/dist/
         name: GhidraBuild
+  build-win:
+    runs-on: windows-latest
+    steps:
+    - run: |
+        curl -OL https://jaist.dl.sourceforge.net/project/gnuwin32/bison/2.4.1/bison-2.4.1-setup.exe
+        curl -OL https://jaist.dl.sourceforge.net/project/gnuwin32/flex/2.5.4a-1/flex-2.5.4a-1.exe
+        ./bison-2.4.1-setup.exe
+        ./flex-2.5.4a-1.exe
+        cd "C:\Program Files\GnuWin32\bin"
+        dir
