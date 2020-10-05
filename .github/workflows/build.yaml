@@ -14,7 +14,9 @@ jobs:
         git clone https://github.com/NationalSecurityAgency/ghidra.git
         cd ~/git/ghidra
         gradle --init-script gradle/support/fetchDependencies.gradle init
-    - run: gradle buildGhidra
+    - run: |
+        cd ~/git/ghidra
+        gradle buildGhidra
 
     - uses: actions/upload-artifact@master
       with:
