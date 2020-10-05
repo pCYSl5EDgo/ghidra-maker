@@ -23,16 +23,11 @@ jobs:
         path: ~/git/ghidra/build/dist/
         name: GhidraBuild
   build-win:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
+    container: docker://gableroux/unity3d:${{ matrix.unity-tag }}
+    strategy:
+      matrix:
+        unity-tag: [2018.4.9f1]
     steps:
-    - run: |
-        curl -OL https://jaist.dl.sourceforge.net/project/gnuwin32/bison/2.4.1/bison-2.4.1-setup.exe
-        curl -OL https://jaist.dl.sourceforge.net/project/gnuwin32/flex/2.5.4a-1/flex-2.5.4a-1.exe
-        ./bison-2.4.1-setup.exe
-        ./flex-2.5.4a-1.exe
-    - run: |
-        cd "C:\Program Files"
-        dir
-    - run: |
-        cd "C:\Program Files (x86)"
-        dir
+    - run: dotnet tool install ilspycmd -g
+    - run: ls /opt/Unity/Editor/
