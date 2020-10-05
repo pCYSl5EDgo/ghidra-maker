@@ -30,7 +30,6 @@ jobs:
         curl -OL https://jaist.dl.sourceforge.net/project/gnuwin32/flex/2.5.4a-1/flex-2.5.4a-1.exe
         ./bison-2.4.1-setup.exe
         ./flex-2.5.4a-1.exe
-        del ./
     - run: |
         cd "C:\Program Files"
         dir
