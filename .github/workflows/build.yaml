@@ -9,37 +9,37 @@ jobs:
   runs-on: ubuntu-20.04
   steps:
   - run: |
-    mkdir ~/git
-    cd ~/git
-    git clone git@github.com:NationalSecurityAgency/ghidra.git
-    mkdir ~/git/ghidra/flatRepo
-    cd ~/Downloads   # Or wherever
-    curl -OL https://github.com/pxb1988/dex2jar/releases/download/2.0/dex-tools-2.0.zip
-    unzip dex-tools-2.0.zip
-    cp dex2jar-2.0/lib/dex-*.jar ~/git/ghidra/flatRepo/
-    cd ~/git/ghidra/flatRepo
-    curl -OL https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/android4me/AXMLPrinter2.jar
-    cd ~/Downloads   # Or wherever
-    curl -OL https://sourceforge.net/projects/catacombae/files/HFSExplorer/0.21/hfsexplorer-0_21-bin.zip
-    mkdir hfsx
-    cd hfsx
-    unzip ../hfsexplorer-0_21-bin.zip
-    cd lib
-    cp csframework.jar hfsx_dmglib.jar hfsx.jar iharder-base64.jar ~/git/ghidra/flatRepo/
-    cd ~/Downloads   # Or wherever
-    curl -OL https://sourceforge.net/projects/yajsw/files/yajsw/yajsw-stable-12.12/yajsw-stable-12.12.zip
-    mkdir -p ~/git/ghidra/Ghidra/Features/GhidraServer/build/
-    cp ~/Downloads/yajsw-stable-12.12.zip ~/git/ghidra/Ghidra/Features/GhidraServer/build/
-    cd ~/Downloads   # Or wherever
-    curl -OL 'https://archive.eclipse.org/tools/cdt/releases/8.6/cdt-8.6.0.zip'
-    curl -o 'cdt-8.6.0.zip.sha512' -L --retry 3 'https://www.eclipse.org/downloads/sums.php?type=sha512&file=/tools/cdt/releases/8.6/cdt-8.6.0.zip'
-    shasum -a 512 -c 'cdt-8.6.0.zip.sha512'
-    mkdir -p ~/git/ghidra/GhidraBuild/EclipsePlugins/GhidraDev/GhidraDevPlugin/build/
-    cp ~/Downloads/cdt-8.6.0.zip ~/git/ghidra/GhidraBuild/EclipsePlugins/GhidraDev/GhidraDevPlugin/build/
-    cd ~/Downloads   # Or wherever
-    curl -L -o 'PyDev 6.3.1.zip' https://sourceforge.net/projects/pydev/files/pydev/PyDev%206.3.1/PyDev%206.3.1.zip
-    cp ~/Downloads/'PyDev 6.3.1.zip' ~/git/ghidra/GhidraBuild/EclipsePlugins/GhidraDev/GhidraDevPlugin/build/
-    gradle buildGhidra
+      mkdir ~/git
+      cd ~/git
+      git clone git@github.com:NationalSecurityAgency/ghidra.git
+      mkdir ~/git/ghidra/flatRepo
+      cd ~/Downloads   # Or wherever
+      curl -OL https://github.com/pxb1988/dex2jar/releases/download/2.0/dex-tools-2.0.zip
+      unzip dex-tools-2.0.zip
+      cp dex2jar-2.0/lib/dex-*.jar ~/git/ghidra/flatRepo/
+      cd ~/git/ghidra/flatRepo
+      curl -OL https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/android4me/AXMLPrinter2.jar
+      cd ~/Downloads   # Or wherever
+      curl -OL https://sourceforge.net/projects/catacombae/files/HFSExplorer/0.21/hfsexplorer-0_21-bin.zip
+      mkdir hfsx
+      cd hfsx
+      unzip ../hfsexplorer-0_21-bin.zip
+      cd lib
+      cp csframework.jar hfsx_dmglib.jar hfsx.jar iharder-base64.jar ~/git/ghidra/flatRepo/
+      cd ~/Downloads   # Or wherever
+      curl -OL https://sourceforge.net/projects/yajsw/files/yajsw/yajsw-stable-12.12/yajsw-stable-12.12.zip
+      mkdir -p ~/git/ghidra/Ghidra/Features/GhidraServer/build/
+      cp ~/Downloads/yajsw-stable-12.12.zip ~/git/ghidra/Ghidra/Features/GhidraServer/build/
+      cd ~/Downloads   # Or wherever
+      curl -OL 'https://archive.eclipse.org/tools/cdt/releases/8.6/cdt-8.6.0.zip'
+      curl -o 'cdt-8.6.0.zip.sha512' -L --retry 3 'https://www.eclipse.org/downloads/sums.php?type=sha512&file=/tools/cdt/releases/8.6/cdt-8.6.0.zip'
+      shasum -a 512 -c 'cdt-8.6.0.zip.sha512'
+      mkdir -p ~/git/ghidra/GhidraBuild/EclipsePlugins/GhidraDev/GhidraDevPlugin/build/
+      cp ~/Downloads/cdt-8.6.0.zip ~/git/ghidra/GhidraBuild/EclipsePlugins/GhidraDev/GhidraDevPlugin/build/
+      cd ~/Downloads   # Or wherever
+      curl -L -o 'PyDev 6.3.1.zip' https://sourceforge.net/projects/pydev/files/pydev/PyDev%206.3.1/PyDev%206.3.1.zip
+      cp ~/Downloads/'PyDev 6.3.1.zip' ~/git/ghidra/GhidraBuild/EclipsePlugins/GhidraDev/GhidraDevPlugin/build/
+      gradle buildGhidra
     
   - uses: actions/upload-artifact@master
     with:
