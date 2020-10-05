@@ -2,7 +2,7 @@ name: Create ALF File
 
 on: 
   schedule:
-  - cron:  '53 * * * *'
+  - cron:  '0 * * * *'
   
 jobs:
   build: 
@@ -12,14 +12,9 @@ jobs:
         mkdir ~/git
         cd ~/git
         git clone https://github.com/NationalSecurityAgency/ghidra.git
-    - run: |
-        ls
-        cd ~/git
-        ls
-    - run: |
-        cd ~/git
+        cd ~/git/ghidra
         gradle --init-script gradle/support/fetchDependencies.gradle init
-        gradle buildGhidra
+    - run: gradle buildGhidra
 
     - uses: actions/upload-artifact@master
       with:
