@@ -34,12 +34,11 @@ jobs:
     - uses: actions/setup-dotnet@v1
       with:
         dotnet-version: '3.1.300' # SDK
-    - run: |
-        export PATH="$PATH:/github/home/.dotnet/tools"
-        dotnet tool install ilspycmd -g
+    - run: ls -l /github/home/.dotnet/
     - run: |
         mkdir outputFolder
-        ilspycmd "/opt/Unity/Editor/Data/il2cpp/build/deploy/net471/il2cpp.exe" -p -o outputFolder
+        dotnet tool install ilspycmd -g
+        /github/home/.dotnet/tools/ilspycmd "/opt/Unity/Editor/Data/il2cpp/build/deploy/net471/il2cpp.exe" -p -o outputFolder
     - run: ls -R -F outputFolder
     - uses: actions/upload-artifact@master
       with:
