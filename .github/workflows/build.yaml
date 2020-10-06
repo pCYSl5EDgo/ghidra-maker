@@ -31,15 +31,15 @@ jobs:
           - 2020.1.7f1-linux-il2cpp
           - 2019.4.11f1-linux-il2cpp
     steps:
-#    - uses: actions/setup-dotnet@v1
-#      with:
-#        dotnet-version: '3.1.300' # SDK
-#    - run: |
-#        export PATH="$PATH:/github/home/.dotnet/tools"
-#        dotnet tool install ilspycmd -g
+    - uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '3.1.300' # SDK
+    - run: |
+        export PATH="$PATH:/github/home/.dotnet/tools"
+        dotnet tool install ilspycmd -g
     - run: |
         mkdir outputFolder
-        ilspucmd "/opt/Unity/Editor/Data/il2cpp/build/deploy/net471/il2cpp.exe" -p -o outputFolder
+        ilspycmd "/opt/Unity/Editor/Data/il2cpp/build/deploy/net471/il2cpp.exe" -p -o outputFolder
     - run: ls -R -F outputFolder
     - uses: actions/upload-artifact@master
       with:
