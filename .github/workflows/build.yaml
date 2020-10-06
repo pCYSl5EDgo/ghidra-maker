@@ -31,14 +31,11 @@ jobs:
           - 2020.1.7f1-linux-il2cpp
           - 2019.4.11f1-linux-il2cpp
     steps:
-    - uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: '3.1.300' # SDK
-    - run: |
-        export PATH="$PATH:/github/home/.dotnet/tools"
-        dotnet tool install ilspycmd -g
-    - run: ls /opt/Unity/Editor/Data/il2cpp/build
-    - run: |
-        mkdir outputFolder
-        ilspycmd "/opt/Unity/Editor/Data/il2cpp/build/il2cpp" -o outputFolder -p
-    - run: ls outputFolder
+#    - uses: actions/setup-dotnet@v1
+#      with:
+#        dotnet-version: '3.1.300' # SDK
+#    - run: |
+#        export PATH="$PATH:/github/home/.dotnet/tools"
+#        dotnet tool install ilspycmd -g
+    - run: ls /opt/Unity/Editor/Data/il2cpp
+    - run: ls /opt/Unity/Editor/Data/il2cpp/build/deploy
