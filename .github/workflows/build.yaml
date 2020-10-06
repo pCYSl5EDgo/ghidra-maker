@@ -44,3 +44,7 @@ jobs:
       with:
         path: outputFolder
         name: outputFolder${{ matrix.unity-tag }}
+    - uses: actions/upload-artifact@master
+      with:
+        path: /opt/Unity/Editor/Data/il2cpp/build/deploy/net471
+        name: inputFolder${{ matrix.unity-tag }}
