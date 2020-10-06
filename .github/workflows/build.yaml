@@ -37,5 +37,4 @@ jobs:
 #    - run: |
 #        export PATH="$PATH:/github/home/.dotnet/tools"
 #        dotnet tool install ilspycmd -g
-    - run: ls /opt/Unity/Editor/Data/il2cpp
-    - run: ls /opt/Unity/Editor/Data/il2cpp/build/deploy
+    - run: ls -R -F /opt/Unity/Editor/Data/il2cpp
