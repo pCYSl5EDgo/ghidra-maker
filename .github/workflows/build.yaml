@@ -29,5 +29,8 @@ jobs:
       matrix:
         unity-tag: [2018.4.9f1]
     steps:
+    - uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '3.1.300' # SDK
     - run: dotnet tool install ilspycmd -g
     - run: ls /opt/Unity/Editor/
