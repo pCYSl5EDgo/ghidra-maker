@@ -37,4 +37,11 @@ jobs:
 #    - run: |
 #        export PATH="$PATH:/github/home/.dotnet/tools"
 #        dotnet tool install ilspycmd -g
-    - run: ls -R -F /opt/Unity/Editor/Data/il2cpp
+    - run: |
+        mkdir outputFolder
+        ilspucmd "/opt/Unity/Editor/Data/il2cpp/build/deploy/net471/il2cpp.exe" -p -o outputFolder
+    - run: ls -R -F outputFolder
+    - uses: actions/upload-artifact@master
+      with:
+        path: outputFolder
+        name: outputFolder
