@@ -5,6 +5,12 @@ on:
     types: [started]
   
 jobs:
+  mingw:
+    runs-on: ubuntu-20.04
+    steps:
+    - run: |
+        sudo apt install mingw-w64
+        x86_64-w64-mingw32-gcc --version
   build-linux: 
     if: 1 == 0
     runs-on: ubuntu-20.04
@@ -24,6 +30,7 @@ jobs:
         name: GhidraBuild
   build-win:
     runs-on: ubuntu-latest
+    if: 1 == 0
     container: docker://gableroux/unity3d:${{ matrix.unity-tag }}
     strategy:
       matrix:
